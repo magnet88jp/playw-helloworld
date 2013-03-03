@@ -1,0 +1,86 @@
+@(title: String = "Home", scripts: Html = Html(""))(content: Html)
+
+<!DOCTYPE html>
+
+<html lang="${lang}"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=${_response_encoding}">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <title>@title</title>
+  <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+  <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/main.css")" media="all">
+  <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript" charset="${_response_encoding}"></script>
+  @scripts
+</head>
+<body>
+<div id="layout">
+  <div id="header">
+    <div id="headerInner">
+      <p id="logo"> <a href="./seminar.html"><img src="@routes.Assets.at("images/logo.gif")" alt="Bayer"></a> </p>
+      <h1 id="description"> <span> ようこそ、<a href="/admin/${account.id}">${account.name}</a>さん。<br>
+        あなたは"${account.roleId}"権限ユーザです。 </span> </h1>
+      <p class="logout"> <a href="/logout"><img src="@routes.Assets.at("images/btn_logout.gif")" alt="ログアウト"></a> </p>
+      <!-- / id headerInner -->
+    </div>
+    <!-- / id header -->
+  </div>
+  <div id="wrap">
+    <div id="pageBody">
+      <div id="pageBodyInner">
+        <div id="content">
+          <div class="section">
+@content
+            <!-- / class section -->
+          </div>
+          <!-- / id content -->
+        </div>
+        <div id="sidebar">
+          <div class="section">
+            <h2 class="bHeadFrist"><img src="@routes.Assets.at("images/bh_sidebar01.gif")" alt="管理メニュー"></h2>
+            <ul id="lNav">
+              <li id="lNav11"><a href="/congresses?searchCond=1">講演会一覧/検索</a></li>
+              <li id="lNav12"><a href="/doctors">ドクター一覧/検索</a></li>
+              <!--<li id="lNav14"><a href="${serverHost}/public/application/add/1">新規ドクター登録</a></li>-->
+              <li id="lNav13"><a href="/transports">交通手配一覧/検索</a></li>
+            </ul>
+            <!-- / class section -->
+          </div>
+          <div class="section">
+            <h2><img src="@routes.Assets.at("images/bh_sidebar02.gif")" alt="ご利用の手引き"></h2>
+            <ul id="lNav">
+              <li id="lNav21"><a href="/public/pdfs/manual.pdf" target="_top">利用マニュアル</a></li>
+              <li id="lNav22"><a href="/contact/index" target="_top">お問い合わせ</a></li>
+            </ul>
+            <!-- / class section -->
+          </div>
+          <div class="section">
+            <h2><img src="@routes.Assets.at("images/bh_sidebar03.gif")" alt="管理者向け"></h2>
+            <ul id="lNav">
+              <li id="lNav31"><a href="/password/reminder">パスワード変更</a></li>
+            </ul>
+            <!-- / class section -->
+          </div>
+          <div class="section">
+            <h2><img src="@routes.Assets.at("images/bh_sidebar04.gif")" alt="システム"></h2>
+            <ul id="lNav">
+              <li id="lNav41"><a href="/sync/index">データの同期</a></li>
+            </ul>
+            <!-- / class section -->
+          </div>
+          <!-- / id sidebar -->
+        </div>
+        <!-- / id pageBodyInner -->
+      </div>
+      <!-- / id pageBody -->
+    </div>
+    <!-- / id wrap -->
+  </div>
+  <div class="both"></div>
+  <div id="footer">
+    <p class="power"><img src="@routes.Assets.at("images/txt_power.gif")" alt="Powered by SHANON MARKETING PLATFORM"></p>
+    <p id="copyright">Copyright &copy; 2013 Scalam Docs, Ltd.</p>
+    <!-- / id footer -->
+  </div>
+  <!-- / id layout -->
+</div>
+</body></html>

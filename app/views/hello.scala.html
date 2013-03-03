@@ -1,0 +1,50 @@
+@()
+
+@scripts = {
+    <script type="text/javascript" src="@routes.Assets.at("javascripts/jquery.scrollTo-1.4.3.1-min.js")"></script>
+}
+
+@main(scripts = scripts) {
+<h2>管理者詳細情報</h2>
+<div class="sectionInner">
+  <div class="formSection">
+    <form method="post" action="#" name="ApplicantsForm" class="jqtransformdone">
+      <p class="leadText">管理者の詳細情報です。</p>
+      <div class="bPageBlock bEditBlock secondaryPalette" id="admin_applicant_search_entry">
+        <div class="pbHeader"></div>
+        <div class="pbBody">
+          <div class="tabbox">
+            <p class="tabs">
+              <a href="#tab1" class="tabmenu on">管理者の詳細情報</a>
+            </p>
+            <div id="tab1" class="tab">
+#{base.detail /}
+            </div>
+
+          </div>
+          <div class="pbTitle"></div>
+        </div>
+        <div class="pbBody"></div>
+        <div class="pbFooter secondaryPalette">
+          <div class="bg"></div>
+        </div>
+      </div>
+      <div class="pbBottomButtons">
+        <table class="tableIdea01" id="Search">
+          <tbody>
+            <tr>
+              <td class="pbButton" align="center">
+                <input id="tab" name="tab" value="${tab}" type="hidden">
+                <input id="menu" name="menu" value="lNav11" type="hidden">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+#{authenticityToken/} 
+    </form>
+    <!-- / class formSection -->
+  </div>
+  <!-- / class sectionInner -->
+</div>
+}
